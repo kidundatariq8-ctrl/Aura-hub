@@ -1,0 +1,116 @@
+!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0a12">
+<title>AURA HUB — Words with energy</title>
+<style>
+:root{--bg:#0b0a12;--panel:#171421;--line:#302640;--purple:#c6a5ff;--muted:#aaa2b8;--white:#f8f5ff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#211532 0%,var(--bg) 48%);color:var(--white);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+.wrap{width:min(100%,620px);margin:auto;padding:24px 18px 38px}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}
+.brand{font-weight:900;letter-spacing:4px;font-size:19px}.brand span{color:var(--purple)}
+.pill{border:1px solid var(--line);border-radius:99px;padding:7px 11px;font-size:11px;color:var(--muted);letter-spacing:1px}
+.hero{text-align:center;padding:22px 4px 16px}
+.kicker{font-size:11px;letter-spacing:4px;color:var(--purple);font-weight:700}
+h1{font-size:clamp(32px,9vw,49px);line-height:1.06;letter-spacing:-1.5px;margin:14px 0}
+h1 em{font-style:normal;color:var(--purple)}
+.sub{color:var(--muted);font-size:14px;line-height:1.65;max-width:390px;margin:0 auto}
+.tabs{display:flex;gap:8px;overflow:auto;padding:22px 0 16px;scrollbar-width:none}
+.tab{white-space:nowrap;border:1px solid var(--line);border-radius:99px;background:#13101b;color:#c5bdd1;padding:10px 14px;font-size:12px}
+.tab.active{background:var(--purple);color:#171020;border-color:var(--purple);font-weight:800}
+.card{position:relative;overflow:hidden;background:linear-gradient(145deg,#211a30,#15121e 65%);border:1px solid #40304f;border-radius:24px;padding:27px 22px;min-height:260px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 20px 60px #0005}
+.card:before{content:"“";position:absolute;right:17px;top:-23px;font-family:Georgia,serif;font-size:150px;color:#c6a5ff12;line-height:1}
+.cardtop{display:flex;justify-content:space-between;align-items:center;position:relative}
+.tag{font-size:10px;letter-spacing:2px;color:var(--purple);font-weight:800}
+.star{font-size:19px;color:var(--purple)}
+.quote{font-size:clamp(23px,6vw,32px);line-height:1.36;font-weight:700;letter-spacing:-.5px;margin:28px 0;position:relative}
+.quote.sw{font-size:clamp(21px,5.5vw,29px)}
+.cardbottom{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px;letter-spacing:1px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}
+button{font:inherit;cursor:pointer}
+.btn{border-radius:13px;padding:14px 10px;font-size:13px;font-weight:800;border:1px solid var(--line);background:#191522;color:var(--white)}
+.btn.primary{background:var(--purple);color:#170f23;border-color:var(--purple)}
+.btn:active,.tab:active{transform:scale(.98)}
+.sectionhead{display:flex;justify-content:space-between;align-items:end;margin:31px 0 13px}
+.sectionhead h2{font-size:17px;margin:0}.sectionhead span{color:var(--muted);font-size:12px}
+.list{display:grid;gap:9px}
+.item{display:flex;gap:12px;align-items:flex-start;background:#13111b;border:1px solid #282233;border-radius:14px;padding:14px}
+.item .num{color:var(--purple);font-size:11px;font-weight:800;padding-top:3px}
+.item p{margin:0;font-size:13px;line-height:1.5;flex:1}
+.item button{background:transparent;color:var(--purple);border:0;font-size:12px}
+.note{margin-top:24px;padding:16px;border:1px solid var(--line);border-radius:16px;color:var(--muted);font-size:12px;line-height:1.6}
+footer{text-align:center;color:#777083;font-size:11px;letter-spacing:1px;padding:26px 0 8px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#f3eaff;color:#1b1028;padding:12px 17px;border-radius:99px;font-size:13px;font-weight:800;box-shadow:0 8px 30px #0006;opacity:0;pointer-events:none;transition:opacity .2s;max-width:90%;text-align:center}
+.toast.show{opacity:1}
+@media(min-width:520px){.wrap{padding-top:32px}.card{padding:32px}.hero{padding-top:35px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="brand">AURA <span>HUB</span></div><div class="pill">YOUR DAILY ENERGY</div></header>
+<section class="hero">
+<div class="kicker">THINK DEEPER. MOVE SMARTER.</div>
+<h1>Words with <em>energy.</em></h1>
+<p class="sub">Quotes za mindset, nidhamu na maisha. Chagua vibe yako, pata maneno yako, kisha yashiriki.</p>
+</section>
+<nav class="tabs" aria-label="Quote categories">
+<button class="tab active" data-cat="all">All vibes</button>
+<button class="tab" data-cat="mysterious">Mysterious</button>
+<button class="tab" data-cat="discipline">Discipline</button>
+<button class="tab" data-cat="wisdom">Wisdom</button>
+<button class="tab" data-cat="kiswahili">Kiswahili</button>
+</nav>
+<section class="card" aria-live="polite">
+<div class="cardtop"><span class="tag" id="category">MYSTERIOUS MIND</span><span class="star">✦</span></div>
+<div class="quote" id="quote">Move in silence. Let your progress speak.</div>
+<div class="cardbottom"><span id="count">QUOTE 01</span><span>AURA ORIGINALS</span></div>
+</section>
+<div class="actions">
+<button class="btn primary" id="next">↻ &nbsp; Next quote</button>
+<button class="btn" id="copy">▢ &nbsp; Copy quote</button>
+<button class="btn" id="share">↗ &nbsp; Share quote</button>
+<button class="btn" id="save">♡ &nbsp; Save quote</button>
+</div>
+<section class="sectionhead"><h2>Your saved quotes</h2><span id="savedCount">0 saved</span></section>
+<div class="list" id="savedList"><div class="item"><span class="num">✦</span><p>Bonyeza “Save quote” ili kuhifadhi quotes unazozipenda kwenye simu hii.</p></div></div>
+<div class="note"><strong style="color:#eee4ff">AURA HUB — Version 1.0</strong><br>Prototype ya kwanza iliyotengenezwa kwa kujifunza na kujaribu. Quotes ni za matumizi ya jumla; unaweza kuongeza zako na kubadilisha brand kadiri project inavyokua.</div>
+<footer>MADE WITH PURPOSE · AURA HUB</footer>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const quotes=[
+{cat:"mysterious",label:"MYSTERIOUS MIND",text:"Move in silence. Let your progress speak."},
+{cat:"discipline",label:"DISCIPLINE",text:"Your future is built by what you do today."},
+{cat:"wisdom",label:"WISDOM",text:"Not every situation deserves your reaction."},
+{cat:"mysterious",label:"QUIET POWER",text:"Be private with your plans and consistent with your actions."},
+{cat:"kiswahili",label:"MSIMAMO",text:"Usipige kelele kuhusu ndoto zako. Zifanyie kazi."},
+{cat:"discipline",label:"CONSISTENCY",text:"Small steps, repeated daily, create extraordinary change."},
+{cat:"kiswahili",label:"HESHIMA",text:"Linda amani yako, heshimu wengine, simamia misingi yako."},
+{cat:"mysterious",label:"INNER WORLD",text:"Not everything about you needs an explanation."},
+{cat:"wisdom",label:"PATIENCE",text:"Growth takes time. Give your effort room to work."},
+{cat:"kiswahili",label:"MAISHA",text:"Kila siku ni nafasi mpya ya kujifunza na kuboresha."},
+{cat:"discipline",label:"FOCUS",text:"Stay focused on the work, not the applause."},
+{cat:"wisdom",label:"SELF RESPECT",text:"You can be kind and still have boundaries."},
+{cat:"mysterious",label:"SILENT MOVES",text:"Let your results introduce you."},
+{cat:"kiswahili",label:"NDOTO",text:"Ndoto zina thamani pale unapozipa juhudi."},
+{cat:"discipline",label:"MINDSET",text:"Motivation starts the journey. Habits help you continue."}
+];
+let current=0, category="all", saved=[];
+const $=id=>document.getElementById(id);
+function filtered(){return quotes.map((q,i)=>({...q,original:i})).filter(q=>category==="all"||q.cat===category)}
+function render(){const arr=filtered();if(!arr.length)return;current=((current%arr.length)+arr.length)%arr.length;const q=arr[current];$("category").textContent=q.label;$("quote").textContent=q.text;$("quote").classList.toggle("sw",q.text.match(/[ā-ž]/i)||q.cat==="kiswahili");$("count").textContent="QUOTE "+String(current+1).padStart(2,"0");}
+function toast(msg){$("toast").textContent=msg;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1900)}
+async function copyText(text){try{await navigator.clipboard.writeText(text);toast("Quote copied!")}catch(e){const ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast("Quote copied!")}catch(_){toast("Chagua quote na uinakili mwenyewe.")}ta.remove()}}
+$("next").onclick=()=>{current++;render()};
+$("copy").onclick=()=>copyText($("quote").textContent);
+$("share").onclick=async()=>{const text=$("quote").textContent+" — AURA HUB";if(navigator.share){try{await navigator.share({title:"AURA HUB",text})}catch(e){}}else copyText(text)};
+$("save").onclick=()=>{const q=$("quote").textContent;if(saved.includes(q)){toast("Quote hii tayari imehifadhiwa.");return}saved.push(q);renderSaved();toast("Quote imehifadhiwa kwenye list yako.")};
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));b.classList.add("active");category=b.dataset.cat;current=0;render()});
+function renderSaved(){ $("savedCount").textContent=saved.length+" saved";const list=$("savedList");list.innerHTML="";if(!saved.length){list.innerHTML='<div class="item"><span class="num">✦</span><p>Bonyeza “Save quote” ili kuhifadhi quotes unazozipenda kwenye simu hii.</p></div>';return}saved.forEach((q,i)=>{const item=document.createElement("div");item.className="item";const num=document.createElement("span");num.className="num";num.textContent=String(i+1).padStart(2,"0");const p=document.createElement("p");p.textContent=q;const btn=document.createElement("button");btn.textContent="Copy";btn.onclick=()=>copyText(q);item.append(num,p,btn);list.appendChild(item)})}
+render();
+</script>
+</body>
+</html>
